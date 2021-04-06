@@ -13,6 +13,15 @@ namespace WhenCanILegallyBuyAlcohol
         public MainPage()
         {
             InitializeComponent();
+            CountryPicker.ItemsSource = new List<string>
+            {
+                "United States",
+                "Brazil",
+                "UK",
+                "Argentina"
+            };
+            CountryPicker.SelectedIndex = 0;
+
         }
 
         void SubmitButton_Clicked(System.Object sender, System.EventArgs e)
@@ -28,7 +37,26 @@ namespace WhenCanILegallyBuyAlcohol
                     age -= 1;
                 }
 
-                int yearsUntilLegal = 21 - age;
+                int legalAge = 21;
+                string country = (string)CountryPicker.SelectedItem;
+                if (country == "United States")
+                {
+                    legalAge = 21;
+                }
+                else if (country == "Brazil")
+                {
+                    legalAge = 18;
+                }
+                else if (country == "UK")
+                {
+                    legalAge = 18;
+                }
+                else if (country == "Argentina")
+                {
+                    legalAge = 18;
+                }
+
+                int yearsUntilLegal = legalAge - age;
 
                 string labelText;
                 if (yearsUntilLegal == 1 && dateThisYear.Subtract(DateTime.Now).TotalDays < 365)

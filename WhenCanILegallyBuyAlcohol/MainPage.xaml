@@ -10,6 +10,7 @@
 
         <Label x:Name="YearsLabel" Text="Enter your birthday"/>
         <DatePicker x:Name="DatePicker"/>
+        <Picker x:Name="CountryPicker"></Picker>
         <Button x:Name="SubmitButton" Text="Submit" Clicked="SubmitButton_Clicked"/>
 
     </StackLayout>
