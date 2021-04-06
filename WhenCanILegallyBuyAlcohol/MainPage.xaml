@@ -8,8 +8,8 @@
             <Label Text="When Can I Legally Buy Alcohol?" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
 
-        <Label x:Name="YearsLabel"/>
-        <Editor x:Name="AgeInput" Placeholder="Enter your age"/>
+        <Label x:Name="YearsLabel" Text="Enter your birthday"/>
+        <DatePicker x:Name="DatePicker"/>
         <Button x:Name="SubmitButton" Text="Submit" Clicked="SubmitButton_Clicked"/>
 
     </StackLayout>

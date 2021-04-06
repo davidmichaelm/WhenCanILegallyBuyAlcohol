@@ -19,11 +19,24 @@ namespace WhenCanILegallyBuyAlcohol
         {
             try
             {
-                int age = Int32.Parse(AgeInput.Text);
+                var timeBetweenYears = DateTime.Now.Subtract(DatePicker.Date);
+                var dateThisYear = new DateTime(DateTime.Now.Year, DatePicker.Date.Month, DatePicker.Date.Day);
+
+                int age = (int)timeBetweenYears.TotalDays / 365;
+                if (dateThisYear > DateTime.Now && dateThisYear.Day > DateTime.Now.Day)
+                {
+                    age -= 1;
+                }
+
                 int yearsUntilLegal = 21 - age;
 
                 string labelText;
-                if (yearsUntilLegal > 0) {
+                if (yearsUntilLegal == 1 && dateThisYear.Subtract(DateTime.Now).TotalDays < 365)
+                {
+                    labelText = $"You can buy alcohol in less than a year!";
+                }
+                else if (yearsUntilLegal > 0) {
+                    
                     labelText = $"You can buy alcohol in {yearsUntilLegal} year{(yearsUntilLegal > 1 ? "s" : "")}.";
                 }
                 else
